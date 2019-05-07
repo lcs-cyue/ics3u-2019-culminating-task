@@ -31,6 +31,9 @@ public class Pengu extends Actor
             setImage("pengu-right.png");
             moveRight();
         }
+        if (Greenfoot.isKeyDown("space")) {
+            jump();
+        }
     }
     
     public void checkFall()
@@ -45,6 +48,12 @@ public class Pengu extends Actor
         }
     }
    
+    public void jump()
+    {
+        vSpeed = -16;
+        fall();
+    }
+    
     public boolean onGround()
     {
         
