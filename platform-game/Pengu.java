@@ -27,15 +27,23 @@ public class Pengu extends Actor
             setImage("pengu-left.png");
             moveLeft();
         }
+        
         if (Greenfoot.isKeyDown("right")) {
             setImage("pengu-right.png");
             moveRight();
         }
+        
         if (Greenfoot.isKeyDown("space")) {
             jump();
         }
     }
-    
+
+    public void jump()
+    {
+        vSpeed = -16;
+        fall();
+    }
+
     public void checkFall()
     {
         if (onGround()) 
@@ -47,24 +55,17 @@ public class Pengu extends Actor
             fall();
         }
     }
-   
-    public void jump()
-    {
-        vSpeed = -16;
-        fall();
-    }
-    
+
     public boolean onGround()
     {
-        
-        
+
         Actor under = getOneObjectAtOffset( 0, getImage().getHeight() / 2, Ground.class);
         return under != null;
     }
- 
+
     public void fall()
     {
-        setLocation(getX(), getY() + speed);
+        setLocation(getX(), getY() + vSpeed);
         vSpeed = vSpeed + acceleration;
     }
 
