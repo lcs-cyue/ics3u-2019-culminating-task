@@ -23,6 +23,7 @@ public class GroundBelow extends Decoration
      */
     public void act() 
     {
-        // Add your action code here.
+        
+        
     }    
 }

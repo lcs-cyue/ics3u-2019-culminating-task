@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -66,8 +67,8 @@ public class SideScrollingWorld extends World
         // addFences();
         // addMetalPlateSteps();
         // addClouds();
-        // addRightGround();
-        // addHero();
+        addRightGround();
+        addHero();
 
         for (int i = 12; i <= 14; i += 1)
         {
@@ -79,7 +80,6 @@ public class SideScrollingWorld extends World
         }
     }
 
-    
     /**
      * Add blocks to create the ground to walk on at bottom-left of scrollable world.
      */
@@ -102,7 +102,7 @@ public class SideScrollingWorld extends World
             // Add the objects
             addObject(groundTile, x, y);
         }
-        
+
         for (int i = 8; i <= 10; i += 1)
         {
             // Add ground objects at bottom of screen
@@ -115,6 +115,62 @@ public class SideScrollingWorld extends World
 
             // Add the objects
             addObject(groundTile, x, y);
+        }
+    }
+
+    /**
+     * Add blocks to create the ground to walk on at top-right of scrollable world.
+     */
+    private void addRightGround()
+    {
+        // Constants to control dimensions of the ground at end of world
+        final int COUNT_OF_GROUND = 8;
+        final int GROUND_BELOW_COLUMNS = COUNT_OF_GROUND;
+        final int GROUND_BELOW_ROWS = 6;
+        final int COUNT_OF_GROUND_BELOW = GROUND_BELOW_COLUMNS * GROUND_BELOW_ROWS;
+
+        // 1. Make ground at end of level (top layer)
+        for (int i = 0; i <= 10; i += 1)
+        {
+            for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
+            {
+                // Position in wider scrollable world
+                int x = i * TILE_SIZE + HALF_TILE_SIZE;
+                int y = getHeight() - TILE_SIZE + HALF_TILE_SIZE;
+
+                // Create object and add it
+                Ground ground = new Ground(x, y);
+                addObject(ground, x, y);
+            }
+        }
+
+        // 2. Make sub-ground at end of level (below top layer)
+        for (int i = 8; i <= 10; i += 1)
+        {
+            for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
+            {
+                // Position in wider scrollable world
+                int x = i * TILE_SIZE + HALF_TILE_SIZE;
+                int y = getHeight() - TILE_SIZE * 4 + HALF_TILE_SIZE;
+
+                // Create object and add it
+                GroundBelow groundBelow = new GroundBelow(x, y);
+                addObject(groundBelow, x, y);
+            }
+        }
+
+        for (int i = 8; i <= 10; i += 1)
+        {
+            for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
+            {
+                // Position in wider scrollable world
+                int x = i * TILE_SIZE + HALF_TILE_SIZE;
+                int y = getHeight() - TILE_SIZE * 3 + HALF_TILE_SIZE;
+
+                // Create object and add it
+                GroundBelow groundBelow = new GroundBelow(x, y);
+                addObject(groundBelow, x, y);
+            }
         }
     }
 
@@ -212,46 +268,6 @@ public class SideScrollingWorld extends World
 
         // Add hero in bottom left corner of screen
         addObject(theHero, initialX, getHeight() / 4 * 3);
-    }
-
-    /**
-     * Add blocks to create the ground to walk on at top-right of scrollable world.
-     */
-    private void addRightGround()
-    {
-        // Constants to control dimensions of the ground at end of world
-        final int COUNT_OF_GROUND = 8;
-        final int GROUND_BELOW_COLUMNS = COUNT_OF_GROUND;
-        final int GROUND_BELOW_ROWS = 6;
-        final int COUNT_OF_GROUND_BELOW = GROUND_BELOW_COLUMNS * GROUND_BELOW_ROWS;
-
-        // 1. Make ground at end of level (top layer)
-        for (int i = 0; i < 10; i += 1)
-        {
-            // Position in wider scrollable world
-            int x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - i * TILE_SIZE;
-            int y = getHeight() - TILE_SIZE * 2 + HALF_TILE_SIZE;
-
-            // Create object and add it
-            Ground ground = new Ground(x, y);
-            addObject(ground, x, y);
-        }
-
-        
-        // 2. Make sub-ground at end of level (below top layer)
-        for (int i = 0; i < GROUND_BELOW_COLUMNS; i += 1)
-        {
-            for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
-            {
-                // Position in wider scrollable world
-                int x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - i * TILE_SIZE;
-                int y = HALF_VISIBLE_HEIGHT + TILE_SIZE + TILE_SIZE * (j + 1);
-
-                // Create object and add it
-                GroundBelow groundBelow = new GroundBelow(x, y);
-                addObject(groundBelow, x, y);
-            }
-        }
     }
 
     /**
