@@ -34,8 +34,8 @@ public class SideScrollingWorld extends World
     public static final int SCROLLABLE_WIDTH = VISIBLE_WIDTH * 3;
     private static final int SCROLLABLE_HEIGHT = VISIBLE_HEIGHT;
 
-    // Hero
-    Hero theHero;
+    //Demon
+    Demon theDemon;
 
     // Track whether game is on
     private boolean isGameOver;
@@ -88,7 +88,7 @@ public class SideScrollingWorld extends World
         // How many tiles will cover the bottom of the initial visible area of screen?
         final int tilesToCreate = getWidth() / TILE_SIZE;
 
-        // Loop to create and add the tile objects
+        //Loop to create and add the Ground tile objects
         for (int i = 0; i <= 10; i += 1)
         {
             // Add ground objects at bottom of screen
@@ -98,6 +98,21 @@ public class SideScrollingWorld extends World
 
             // Create a ground tile
             Ground groundTile = new Ground(x, y);
+
+            // Add the objects
+            addObject(groundTile, x, y);
+        }
+
+        // Add GroundBelow blocks immediately below Ground object just made above
+        for (int i = 0; i <= 10; i += 1)
+        {
+            // Add ground objects at bottom of screen
+            // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = getHeight() - TILE_SIZE + HALF_TILE_SIZE;
+
+            // Create a ground tile
+            GroundBelow groundTile = new GroundBelow(x, y);
 
             // Add the objects
             addObject(groundTile, x, y);
@@ -130,19 +145,19 @@ public class SideScrollingWorld extends World
         final int COUNT_OF_GROUND_BELOW = GROUND_BELOW_COLUMNS * GROUND_BELOW_ROWS;
 
         // 1. Make ground at end of level (top layer)
-        for (int i = 0; i <= 10; i += 1)
-        {
-            for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
-            {
-                // Position in wider scrollable world
-                int x = i * TILE_SIZE + HALF_TILE_SIZE;
-                int y = getHeight() - TILE_SIZE + HALF_TILE_SIZE;
+        // for (int i = 0; i <= 10; i += 1)
+        // {
+        // for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
+        // {
+        // // Position in wider scrollable world
+        // int x = i * TILE_SIZE + HALF_TILE_SIZE;
+        // int y = getHeight() - TILE_SIZE + HALF_TILE_SIZE;
 
-                // Create object and add it
-                Ground ground = new Ground(x, y);
-                addObject(ground, x, y);
-            }
-        }
+        // // Create object and add it
+        // Ground ground = new Ground(x, y);
+        // addObject(ground, x, y);
+        // }
+        // }
 
         // 2. Make sub-ground at end of level (below top layer)
         for (int i = 8; i <= 10; i += 1)
@@ -172,7 +187,7 @@ public class SideScrollingWorld extends World
                 addObject(groundBelow, x, y);
             }
         }
-        
+
         for (int i = 8; i <= 10; i += 1)
         {
             for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
@@ -186,7 +201,7 @@ public class SideScrollingWorld extends World
                 addObject(groundBelow, x, y);
             }
         }
-        
+
         for (int i = 8; i <= 10; i += 1)
         {
             for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
@@ -292,18 +307,18 @@ public class SideScrollingWorld extends World
         int initialX = TILE_SIZE * 3;
 
         // Instantiate the hero object
-        theHero = new Hero(initialX);
+        theDemon = new Demon(initialX);
 
         // Add hero in bottom left corner of screen
-        addObject(theHero, initialX, getHeight() / 4 * 3);
+        addObject(theDemon, initialX, getHeight() / 4 * 3);
     }
 
     /**
      * Return an object reference to the hero.
      */
-    public Hero getHero()
+    public Demon getDemon()
     {
-        return theHero;
+        return theDemon;
     }
 
     /**

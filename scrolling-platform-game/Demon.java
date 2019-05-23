@@ -7,7 +7,7 @@ import java.util.List;
  * @author R. Gordon
  * @version May 8, 2019
  */
-public class Hero extends Actor
+public class Demon extends Actor
 {
     /**
      * Instance variables
@@ -54,7 +54,7 @@ public class Hero extends Actor
      * 
      * This runs once when the Hero object is created.
      */
-    Hero(int startingX)
+    Demon(int startingX)
     {
         // Set where hero begins horizontally
         currentScrollableWorldXPosition = startingX;
@@ -69,7 +69,7 @@ public class Hero extends Actor
         horizontalDirection = FACING_RIGHT;
 
         // Set image
-        setImage("hero-jump-down-right.png");
+        setImage("Demon1.png");
 
         // Initialize the 'walking' arrays
         walkingRightImages = new GreenfootImage[COUNT_OF_WALKING_IMAGES];
@@ -78,7 +78,7 @@ public class Hero extends Actor
         // Load walking images from disk
         for (int i = 0; i < walkingRightImages.length; i++)
         {
-            walkingRightImages[i] = new GreenfootImage("hero-walk-right-" + i + ".png");
+            walkingRightImages[i] = new GreenfootImage("Demon" + i + ".png");
 
             // Create left-facing images by mirroring horizontally
             walkingLeftImages[i] = new GreenfootImage(walkingRightImages[i]);

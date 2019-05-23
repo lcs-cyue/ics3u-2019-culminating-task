@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=Hero
+comment0.target=Demon
 comment0.text=\n\ This\ is\ the\ class\ for\ the\ "main\ character"\ in\ the\ action.\n\ \n\ @author\ R.\ Gordon\n\ @version\ May\ 8,\ 2019\n
 comment1.params=startingX
-comment1.target=Hero(int)
+comment1.target=Demon(int)
 comment1.text=\n\ Constructor\n\ \n\ This\ runs\ once\ when\ the\ Hero\ object\ is\ created.\n
 comment10.params=
 comment10.target=void\ moveLeft()
