@@ -15,7 +15,7 @@ public class Demon extends Actor
      * These are available for use in any method below.
      */    
     // Horizontal speed (change in horizontal position, or delta X)
-    private int deltaX = 4;
+    private int deltaX = 6;
 
     // Vertical speed (change in vertical position, or delta Y)
     private int deltaY = 4;
@@ -46,7 +46,7 @@ public class Demon extends Actor
     private GreenfootImage walkingRightImages[];
     private GreenfootImage walkingLeftImages[];
     private static final int WALK_ANIMATION_DELAY = 8;
-    private static final int COUNT_OF_WALKING_IMAGES = 2;
+    private static final int COUNT_OF_WALKING_IMAGES = 5;
     private int walkingFrames;
 
     /**
@@ -69,7 +69,7 @@ public class Demon extends Actor
         horizontalDirection = FACING_RIGHT;
 
         // Set image
-        setImage("Demon1.png");
+        setImage("Demon0.png");
 
         // Initialize the 'walking' arrays
         walkingRightImages = new GreenfootImage[COUNT_OF_WALKING_IMAGES];
@@ -147,11 +147,11 @@ public class Demon extends Actor
             // Set image
             if (horizontalDirection == FACING_RIGHT && Greenfoot.isKeyDown("right") == false)
             {
-                setImage("hero-right.png");
+                setImage("Demon-Right.png");
             }
             else if (horizontalDirection == FACING_LEFT && Greenfoot.isKeyDown("left") == false)
             {
-                setImage("hero-left.png");
+                setImage("Demon-Left.png");
             }
 
             // Get a reference to any object that's created from a subclass of Platform,
@@ -215,11 +215,11 @@ public class Demon extends Actor
         // Set image
         if (horizontalDirection == FACING_RIGHT)
         {
-            setImage("hero-jump-up-right.png");
+            setImage("Demon-Jump-Up-Right.png");
         }
         else
         {
-            setImage("hero-jump-up-left.png");
+            setImage("Demon-Jump-Up-Left.png");
         }
 
         // Change the vertical speed to the power of the jump
@@ -242,11 +242,11 @@ public class Demon extends Actor
             // Set image
             if (horizontalDirection == FACING_RIGHT)
             {
-                setImage("hero-jump-down-right.png");
+                setImage("Demon-Jump-Down-Right.png");
             }
             else
             {
-                setImage("hero-jump-down-left.png");
+                setImage("Demon-Jump-Down-Left.png");
             }
         }
 
@@ -307,11 +307,11 @@ public class Demon extends Actor
             // Set appropriate jumping image
             if (verticalDirection == JUMPING_UP)
             {
-                setImage("hero-jump-up-right.png");
+                setImage("Demon-Jump-Up-Right.png");
             }
             else
             {
-                setImage("hero-jump-down-right.png");
+                setImage("Demon-Jump-Down-Right.png");
             }
         }
 
@@ -419,11 +419,11 @@ public class Demon extends Actor
             // Set appropriate jumping image
             if (verticalDirection == JUMPING_UP)
             {
-                setImage("hero-jump-up-left.png");
+                setImage("Demon-Jump-Up-Left.png");
             }
             else
             {
-                setImage("hero-jump-down-left.png");
+                setImage("Demon-Jump-Down-Left.png");
             }
         }
 

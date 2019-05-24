@@ -52,6 +52,7 @@ public class SideScrollingWorld extends World
 
         // Set up the starting scene
         setup();
+        setBackground(new GreenfootImage("Castle2.png"));
 
         // Game on
         isGameOver = false;
