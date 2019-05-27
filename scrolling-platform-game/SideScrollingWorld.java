@@ -66,7 +66,7 @@ public class SideScrollingWorld extends World
         // TO STUDENTS: Add, revise, or remove methods as needed to define your own game's world
         addLeftGround();
         // addFences();
-        // addMetalPlateSteps();
+        // addPlateSteps();
         // addClouds();
         addRightGround();
         addHero();
@@ -76,7 +76,7 @@ public class SideScrollingWorld extends World
             int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
             int y = getHeight() - 2 *TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate (x,y);
+            Plate plate = new Plate (x,y);
             addObject(plate,x,y);
         }
     }
@@ -254,7 +254,7 @@ public class SideScrollingWorld extends World
     /**
      * Add steps made out of metal plates leading to end of world.
      */
-    private void addMetalPlateSteps()
+    private void addPlateSteps()
     {
         // How many plates total?
         final int COUNT_OF_METAL_PLATES = 20;
@@ -270,7 +270,7 @@ public class SideScrollingWorld extends World
             for (int j = 0; j < PLATES_PER_GROUP; j += 1)
             {
                 int x = VISIBLE_WIDTH + TILE_SIZE * 2 + TILE_SIZE * (i + j) + TILE_SIZE * 5 * i;
-                MetalPlate plate = new MetalPlate(x, y);
+                Plate plate = new Plate(x, y);
                 addObject(plate, x, y);
             }
         }

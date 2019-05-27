@@ -6,14 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MetalPlate extends Platform
+public class Plate extends Platform
 {
     /**
      * Constructor
      * 
      * Called once when object is created.
      */
-    MetalPlate(int scrollableWorldX, int scrollableWorldY)
+    Plate(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
     }
