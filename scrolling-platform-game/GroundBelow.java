@@ -16,7 +16,8 @@ public class GroundBelow extends Decoration
     GroundBelow(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
-    }    
+    }  
+    
     /**
      * Act - do whatever the GroundBelow wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

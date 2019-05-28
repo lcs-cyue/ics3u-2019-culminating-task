@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Star extends Decoration
 {
     private boolean isInWorld;
+    private int frames;
 
     /**
      * Act - do whatever the Star wants to do. This method is called whenever
@@ -19,13 +20,29 @@ public class Star extends Decoration
         super(scrollableWorldX, scrollableWorldY);
 
         isInWorld = true;
+        frames = 0;
     }
 
     public void act() 
     {
+
         if (isInWorld)
         {
             checkForRemoval();
+        }
+        else
+        {
+            frames += 1;
+            setImage("Star-invisible.png");
+            
+            // Now after 30 frames remove the text
+            if (frames == 30)
+            {
+                getWorld().showText("", 340, 350);
+                
+                
+            }
+
         }
     }   
 
@@ -35,8 +52,8 @@ public class Star extends Decoration
         if( isTouching(Demon.class))
         {
             isInWorld = false;
-            getWorld().showText("+1",550,140);
-            getWorld().removeObject(this);
+            getWorld().showText("+1",340,350);
+
         }
 
     } 

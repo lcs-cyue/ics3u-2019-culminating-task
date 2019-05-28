@@ -73,6 +73,7 @@ public class SideScrollingWorld extends World
         addRightGround();
         addHero();
         addStar();
+        addPullBack();
 
     }
 
@@ -83,6 +84,16 @@ public class SideScrollingWorld extends World
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
         Star star1 = new Star(x, y);
         addObject(star1, x, y);
+
+    }
+    
+    private void addPullBack()
+    {
+        
+        int x = HALF_TILE_SIZE + TILE_SIZE * 19;
+        int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
+        PullBack arrow = new PullBack(x, y);
+        addObject(arrow, x, y);
 
     }
 
