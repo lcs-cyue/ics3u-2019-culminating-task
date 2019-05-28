@@ -6,20 +6,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author R. Gordon
  * @version May 8, 2019
  */
-public class Fence extends Decoration
+public class Tower extends Decoration
 {
     /**
      * Constructor
      * 
      * Called once when object is created.
      */
-    Fence(int scrollableWorldX, int scrollableWorldY)
+    Tower(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
     }
     
     /**
-     * Act - do whatever the Fence wants to do. This method is called whenever
+     * Act - do whatever the Tower wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 

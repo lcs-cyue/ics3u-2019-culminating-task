@@ -65,14 +65,19 @@ public class SideScrollingWorld extends World
     {
         // TO STUDENTS: Add, revise, or remove methods as needed to define your own game's world
         addLeftGround();
-        addFences();
+        addTowers();
         addPlateSteps();
         addClouds();
         addRightGround();
         addHero();
+        addStar();
 
     }
-
+    private void addStar()
+    {
+        Star star1 = new Star(500, 160);
+        addObject(star1, 545, 145);
+    }
     /**
      * Add blocks to create the ground to walk on at bottom-left of scrollable world.
      */
@@ -158,36 +163,36 @@ public class SideScrollingWorld extends World
     }
 
     /**
-     * Add some fences at left and right side.
+     * Add some Towers at left and right side.
      */
-    private void addFences()
+    private void addTowers()
     {
-        // Three fences on left side of world
+        // Three Towers on left side of world
         int x = HALF_TILE_SIZE + TILE_SIZE * 16;
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
-        Fence fence1 = new Fence(x, y);
-        addObject(fence1, x, y);
+        Tower Tower1 = new Tower(x, y);
+        addObject(Tower1, x, y);
 
         // x = HALF_TILE_SIZE + TILE_SIZE * 6;
         // y = VISIBLE_HEIGHT - HALF_TILE_SIZE - TILE_SIZE;        
-        // Fence fence2 = new Fence(x, y);
-        // addObject(fence2, x, y);
+        // Tower Tower2 = new Tower(x, y);
+        // addObject(Tower2, x, y);
 
         // x = HALF_TILE_SIZE + TILE_SIZE * 7;
         // y = VISIBLE_HEIGHT - HALF_TILE_SIZE - TILE_SIZE;
-        // Fence fence3 = new Fence(x, y);
-        // addObject(fence3, x, y);
+        // Tower Tower3 = new Tower(x, y);
+        // addObject(Tower3, x, y);
 
-        // Two fences on right side of world
+        // Two Towers on right side of world
         x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - TILE_SIZE * 3;
         y = VISIBLE_HEIGHT / 2;
-        Fence fence4 = new Fence(x, y);
-        addObject(fence4, x, y);
+        Tower Tower4 = new Tower(x, y);
+        addObject(Tower4, x, y);
 
         x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - TILE_SIZE * 4;
         y = VISIBLE_HEIGHT / 2;
-        Fence fence5 = new Fence(x, y);
-        addObject(fence5, x, y);
+        Tower Tower5 = new Tower(x, y);
+        addObject(Tower5, x, y);
     }
 
     /**
