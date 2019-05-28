@@ -52,6 +52,8 @@ public class SideScrollingWorld extends World
 
         // Set up the starting scene
         setup();
+
+        // Change the background
         setBackground(new GreenfootImage("Castle2.png"));
 
         // Game on
@@ -63,7 +65,7 @@ public class SideScrollingWorld extends World
      */
     private void setup()
     {
-        // TO STUDENTS: Add, revise, or remove methods as needed to define your own game's world
+
         addLeftGround();
         addTowers();
         addPlateSteps();
@@ -73,11 +75,17 @@ public class SideScrollingWorld extends World
         addStar();
 
     }
+
     private void addStar()
     {
-        Star star1 = new Star(500, 160);
-        addObject(star1, 545, 145);
+        
+        int x = HALF_TILE_SIZE + TILE_SIZE * 17;
+        int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
+        Star star1 = new Star(x, y);
+        addObject(star1, x, y);
+
     }
+
     /**
      * Add blocks to create the ground to walk on at bottom-left of scrollable world.
      */
@@ -167,23 +175,14 @@ public class SideScrollingWorld extends World
      */
     private void addTowers()
     {
-        // Three Towers on left side of world
+        // Add a tower into the world
         int x = HALF_TILE_SIZE + TILE_SIZE * 16;
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
         Tower Tower1 = new Tower(x, y);
         addObject(Tower1, x, y);
 
-        // x = HALF_TILE_SIZE + TILE_SIZE * 6;
-        // y = VISIBLE_HEIGHT - HALF_TILE_SIZE - TILE_SIZE;        
-        // Tower Tower2 = new Tower(x, y);
-        // addObject(Tower2, x, y);
-
-        // x = HALF_TILE_SIZE + TILE_SIZE * 7;
-        // y = VISIBLE_HEIGHT - HALF_TILE_SIZE - TILE_SIZE;
-        // Tower Tower3 = new Tower(x, y);
-        // addObject(Tower3, x, y);
-
-        // Two Towers on right side of world
+        
+        
         x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - TILE_SIZE * 3;
         y = VISIBLE_HEIGHT / 2;
         Tower Tower4 = new Tower(x, y);
@@ -213,7 +212,7 @@ public class SideScrollingWorld extends World
             Plate plate = new Plate (x,y);
             addObject(plate,x,y);
         }
-        
+
         for (int i = 15; i <= 16; i += 1)
         {
             int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
@@ -222,7 +221,7 @@ public class SideScrollingWorld extends World
             Plate plate = new Plate (x,y);
             addObject(plate,x,y);
         }
-        
+
         for (int i = 9; i <= 11; i += 1)
         {
             int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
