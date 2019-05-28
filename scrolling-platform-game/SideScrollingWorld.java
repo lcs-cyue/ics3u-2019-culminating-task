@@ -71,23 +71,6 @@ public class SideScrollingWorld extends World
         addRightGround();
         addHero();
 
-        for (int i = 12; i <= 14; i += 1)
-        {
-            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = getHeight() - 2 *TILE_SIZE + HALF_TILE_SIZE;
-
-            Plate plate = new Plate (x,y);
-            addObject(plate,x,y);
-        }
-
-        for (int i = 7; i <= 9; i += 1)
-        {
-            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = getHeight() - TILE_SIZE * 8 + HALF_TILE_SIZE;
-
-            Plate plate = new Plate (x,y);
-            addObject(plate,x,y);
-        }
     }
 
     /**
@@ -99,7 +82,7 @@ public class SideScrollingWorld extends World
         final int tilesToCreate = getWidth() / TILE_SIZE;
 
         //Loop to create and add the Ground tile objects
-        for (int i = 0; i <= 10; i += 1)
+        for (int i = 0; i <= 9; i += 1)
         {
             // Add ground objects at bottom of screen
             // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
@@ -114,7 +97,7 @@ public class SideScrollingWorld extends World
         }
 
         // Add GroundBelow blocks immediately below Ground object just made above
-        for (int i = 0; i <= 10; i += 1)
+        for (int i = 0; i <= 9; i += 1)
         {
             // Add ground objects at bottom of screen
             // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
@@ -128,7 +111,22 @@ public class SideScrollingWorld extends World
             addObject(groundTile, x, y);
         }
 
+        for (int i = 26; i <= 30; i += 1)
+        {
+            // Add ground objects at bottom of screen
+            // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = getHeight() - TILE_SIZE * 5 + HALF_TILE_SIZE;
+
+            // Create a ground tile
+            Ground groundTile = new Ground(x, y);
+
+            // Add the objects
+            addObject(groundTile, x, y);
+        }
+
     }
+
     /**
      * Add blocks to create the ground to walk on at top-right of scrollable world.
      */
@@ -165,7 +163,7 @@ public class SideScrollingWorld extends World
     private void addFences()
     {
         // Three fences on left side of world
-        int x = HALF_TILE_SIZE + TILE_SIZE * 13;
+        int x = HALF_TILE_SIZE + TILE_SIZE * 16;
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
         Fence fence1 = new Fence(x, y);
         addObject(fence1, x, y);
@@ -202,19 +200,55 @@ public class SideScrollingWorld extends World
         final int PLATES_PER_GROUP = 3;
 
         // Add groups of plates
-        for (int i = 0; i < COUNT_OF_METAL_PLATES / PLATES_PER_GROUP; i += 1)
+        for (int i = 15; i <= 17; i += 1)
         {
-            // Group of four metal plates all at same y position
-            int y = VISIBLE_HEIGHT - HALF_TILE_SIZE - i * TILE_SIZE * 3;
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = getHeight() - 2 *TILE_SIZE + HALF_TILE_SIZE;
 
-            // Add the individual plates in a given group
-            for (int j = 0; j < PLATES_PER_GROUP; j += 1)
-            {
-                int x = VISIBLE_WIDTH + TILE_SIZE * 4 + TILE_SIZE * (i + j) + TILE_SIZE * 10 * i;
-                Plate plate = new Plate(x, y);
-                addObject(plate, x, y);
-            }
+            Plate plate = new Plate (x,y);
+            addObject(plate,x,y);
         }
+        
+        for (int i = 15; i <= 16; i += 1)
+        {
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = TILE_SIZE * 5 + HALF_TILE_SIZE;
+
+            Plate plate = new Plate (x,y);
+            addObject(plate,x,y);
+        }
+        
+        for (int i = 9; i <= 11; i += 1)
+        {
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = getHeight() - TILE_SIZE * 6 + HALF_TILE_SIZE;
+
+            Plate plate = new Plate (x,y);
+            addObject(plate,x,y);
+        }
+
+        for (int i = 21; i <= 22; i += 1)
+        {
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = getHeight() - TILE_SIZE * 4 + HALF_TILE_SIZE;
+
+            Plate plate = new Plate (x,y);
+            addObject(plate,x,y);
+        }
+
+        // for (int i = 0; i < COUNT_OF_METAL_PLATES / PLATES_PER_GROUP; i += 1)
+        // {
+        // // Group of four metal plates all at same y position
+        // int y = VISIBLE_HEIGHT - HALF_TILE_SIZE - i * TILE_SIZE * 3;
+
+        // // Add the individual plates in a given group
+        // for (int j = 0; j < PLATES_PER_GROUP; j += 1)
+        // {
+        // int x = VISIBLE_WIDTH + TILE_SIZE * 4 + TILE_SIZE * (i + j) + TILE_SIZE * 10 * i;
+        // Plate plate = new Plate(x, y);
+        // addObject(plate, x, y);
+        // }
+        // }
 
     }
 
