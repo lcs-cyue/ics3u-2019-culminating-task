@@ -277,6 +277,15 @@ public class SideScrollingWorld extends World
             addObject(plate,x,y);
         }
 
+        for (int i = 23; i <= 24; i += 1)
+        {
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = getHeight() - TILE_SIZE * 4 + HALF_TILE_SIZE;
+
+            Plate plate = new Plate (x,y);
+            addObject(plate,x,y);
+        }
+        
         for (int i = 32; i < 33; i += 1)
         {
             int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
@@ -390,6 +399,8 @@ public class SideScrollingWorld extends World
         addObject(key,1000,100);
         Skull skull = new Skull(100, 100);
         addObject(skull,1100,290);
+        Careful text1 = new Careful(100, 100);
+        addObject(text1,1200,60);
     }
 }
 
