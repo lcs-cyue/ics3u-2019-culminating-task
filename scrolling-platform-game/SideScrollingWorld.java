@@ -472,8 +472,8 @@ public class SideScrollingWorld extends World
         addObject(text1,1300, 60);
         InvisibleWall wall1 = new InvisibleWall(1900, 240);
         addObject(wall1, 1700, 240);
-        Door door1 = new Door(1880, 240);
-        addObject(door1, 1880, 240);
+        Door door1 = new Door(1875, 250);
+        addObject(door1, 1875, 250);
     }
 }
 

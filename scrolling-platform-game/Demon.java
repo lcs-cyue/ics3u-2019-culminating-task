@@ -49,7 +49,7 @@ public class Demon extends Actor
     private static final int COUNT_OF_WALKING_IMAGES = 5;
     private int walkingFrames;
     private boolean isInWorld;
-    private boolean touchingWall;
+
     private boolean hasKey;
 
     /**
@@ -65,11 +65,7 @@ public class Demon extends Actor
         // Game on
         isGameOver = false;
 
-        // Touching the invisible wall
-        touchingWall = false;
-
         hasKey = false;
-
         // First jump will be in 'down' direction
         verticalDirection = JUMPING_DOWN;
 
@@ -116,12 +112,13 @@ public class Demon extends Actor
             checkForRemoval();
         }
 
-        //Allows the demon to rotate
+        //Allows the demon to rotate counter clockwise
         if (Greenfoot.isKeyDown("a"))
         { 
             setRotation(getRotation() - 5);
         }
 
+        //Allows the demon to rotate clockwise
         if (Greenfoot.isKeyDown("d"))
         { 
             setRotation(getRotation() + 5);
@@ -137,16 +134,18 @@ public class Demon extends Actor
         { 
             Fire();
         }
+
         if (!isGameOver)
         {
             checkGameOver();
         }
+
+        //If demon doesn't have the key → (Everything else moves right so that it seems like) he goes back to the starting point 
         if (!isGameOver)
         {
             if( isTouching(InvisibleWall.class) && hasKey == false)
             {
                 walkingFrames += 1;
-                touchingWall = true;
                 isInWorld = true;
                 // Make the character appear to have moved back to an x position of 100
                 moveEverythingBy(1270);
@@ -160,13 +159,16 @@ public class Demon extends Actor
             }
         }
 
-         //score+1 if gets star
-        if (isTouching(Star.class))
+        //score+1 if gets star
+        if (!isGameOver)
         {
-            removeTouching(Star.class);
-            SideScrollingWorld world1 = (SideScrollingWorld)getWorld();
-            Score score = world1.getScore();
-            score.addScore();
+            if(isTouching(Star.class))
+            {
+                removeTouching(Star.class);
+                SideScrollingWorld world1 = (SideScrollingWorld)getWorld();
+                Score score = world1.getScore();
+                score.addScore();
+            }
         }
     }
 
@@ -186,7 +188,7 @@ public class Demon extends Actor
             hasKey = true;
         }
     }
-
+    
     /**
      * Move everything else by a given amount.
      */
@@ -548,12 +550,10 @@ public class Demon extends Actor
 
     }
 
-    
     private void Win()
     {
         YouWin win1 = new YouWin(320, 240);
         getWorld().addObject(win1, 320, 240);
-        Greenfoot.stop();
     }
 
     /**
@@ -673,7 +673,7 @@ public class Demon extends Actor
         if( isTouching(PullBack.class))
         {
             setLocation (getX()-150, getY());
-
+            //Greenfoot.playSound(_soundFile_)
         }
 
     } 
@@ -682,6 +682,7 @@ public class Demon extends Actor
     {
         GameOver gameOver = new GameOver(320, 240);
         getWorld().addObject(gameOver,320,240);
+        //Greenfoot.playSound(Laughter.mp3);
         Greenfoot.stop();
     }
 

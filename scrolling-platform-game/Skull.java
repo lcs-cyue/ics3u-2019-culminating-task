@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Skull here.
  * 
- * @author (your name) 
+ * @author C. Yue
  * @version (a version number or a date)
  */
 public class Skull extends Decoration
@@ -16,13 +16,12 @@ public class Skull extends Decoration
     Skull(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
-
+        setImage("Skull0.png");
     }
 
     private void animate()
     {
-        setImage("Skull0.png");
-
+        
         animation = new GreenfootImage[COUNT_OF_ANIMATIONS];
 
         for (int i = 0; i < animation.length; i++)
@@ -35,7 +34,7 @@ public class Skull extends Decoration
 
     private void Move()
     {
-        // Track walking animation frames
+        // Track animation frames
         Frames += 1;
 
         // Get current animation stage
@@ -47,8 +46,7 @@ public class Skull extends Decoration
             setImage(animation[stage]);
 
         }
-
-        
+     
     }
     
     public void act() 
