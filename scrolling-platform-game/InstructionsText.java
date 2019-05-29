@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Door here.
+ * Write a description of class InstructionsText here.
  * 
- * @author C. Yue
+ * @author (your name) 
  * @version (a version number or a date)
  */
-public class Door extends Decoration
+public class InstructionsText extends Decoration
 {
     /**
-     * Act - do whatever the Door wants to do. This method is called whenever
+     * Act - do whatever the InstructionsText wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    Door(int scrollableWorldX, int scrollableWorldY)
+    InstructionsText(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
     }   

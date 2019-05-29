@@ -2,9 +2,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Template for a side-scrolling platform game.
- * 
- * @author R. Gordon
+ * @author C. Yue
  * @version May 8, 2019
  */
 public class SideScrollingWorld extends World
