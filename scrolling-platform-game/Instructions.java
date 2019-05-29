@@ -27,7 +27,9 @@ public class Instructions extends World
     public void prepare() 
     {
         InstructionsText text= new InstructionsText(getWidth()/2, getHeight()/2);
-        addObject (text, getWidth()/2, getHeight()/2);
+        addObject(text, getWidth()/2, getHeight()/2);
+        SkullArt skull1= new SkullArt(getWidth()/2, getHeight()/2);
+        addObject(skull1, getWidth()/2, getHeight()/2);
     }
 
     public void act()
@@ -37,12 +39,11 @@ public class Instructions extends World
 
     private void change()
     {
-        //set the world after pressing enter
+        //set the SideScrollingWorld after pressing enter, stop the current background music
         if (Greenfoot.isKeyDown ("enter"))
         {
             backgroundMusic.stop();
             Greenfoot.setWorld(new SideScrollingWorld());
-            
         }
     }
 }

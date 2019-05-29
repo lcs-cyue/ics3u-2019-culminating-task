@@ -468,12 +468,16 @@ public class SideScrollingWorld extends World
     {
         Key key = new Key(1190, 70);
         addObject(key, 1190, 70);
+        
         Skull skull = new Skull(1100,290);
         addObject(skull,1100,290);
+        
         Careful text1 = new Careful(1300, 60);
         addObject(text1,1300, 60);
+        
         InvisibleWall wall1 = new InvisibleWall(1900, 240);
         addObject(wall1, 1700, 240);
+        
         Door door1 = new Door(1870, 244);
         addObject(door1, 1870, 244);
     }
