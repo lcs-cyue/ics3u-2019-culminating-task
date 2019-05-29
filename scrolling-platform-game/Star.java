@@ -52,7 +52,7 @@ public class Star extends Decoration
         if( isTouching(Demon.class))
         {
             isInWorld = false;
-            getWorld().showText("+1",340,350);
+            getWorld().showText("Good Job!",340,350);
 
         }
 

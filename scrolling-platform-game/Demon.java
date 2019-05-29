@@ -113,8 +113,8 @@ public class Demon extends Actor
         //key is pressed. Therefore, I changed it to the 
         //"getKey" method in order to fire only 1 bullet at a time
         
-        //press "s" to fire bullets
-        if ("s".equals(Greenfoot.getKey()))
+        //press "w" to fire bullets
+        if ("w".equals(Greenfoot.getKey()))
         { 
             Fire();
         }
