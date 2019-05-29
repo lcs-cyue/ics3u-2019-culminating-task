@@ -106,6 +106,7 @@ public class Demon extends Actor
         checkFall();
         foundKey();
         hasFoundKey();
+        checkFire();
 
         if (isInWorld)
         {
@@ -149,8 +150,9 @@ public class Demon extends Actor
                 isInWorld = true;
                 // Make the character appear to have moved back to an x position of 100
                 moveEverythingBy(1270);
-                getWorld().showText("No Access",100,200);
-
+                getWorld().showText("NO ACCESS",100,200);
+                walkingFrames = 0;
+                
                 if (walkingFrames == 90)
                 {
                     walkingFrames += 1;
@@ -165,6 +167,7 @@ public class Demon extends Actor
             if(isTouching(Star.class))
             {
                 removeTouching(Star.class);
+                Greenfoot.playSound("Coin1.mp3");
                 SideScrollingWorld world1 = (SideScrollingWorld)getWorld();
                 Score score = world1.getScore();
                 score.addScore();
@@ -172,6 +175,14 @@ public class Demon extends Actor
         }
     }
 
+    private void checkFire()
+    {
+        if (Greenfoot.isKeyDown("w"))
+        {
+            Greenfoot.playSound("GunShot.wav");
+        }
+    }
+    
     public boolean foundKey()
     {
         Actor Key = getOneObjectAtOffset(0, 0, Key.class);
@@ -678,7 +689,7 @@ public class Demon extends Actor
         if( isTouching(PullBack.class))
         {
             setLocation (getX()-150, getY());
-            //Greenfoot.playSound(_soundFile_)
+            Greenfoot.playSound("Laughter.mp3");
         }
 
     } 
@@ -687,7 +698,7 @@ public class Demon extends Actor
     {
         GameOver gameOver = new GameOver(320, 240);
         getWorld().addObject(gameOver,320,240);
-        //Greenfoot.playSound(Laughter.mp3);
+        Greenfoot.playSound("Gameover.wav");
         Greenfoot.stop();
     }
 

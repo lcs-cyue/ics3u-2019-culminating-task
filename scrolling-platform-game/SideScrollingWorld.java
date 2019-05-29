@@ -89,14 +89,8 @@ public class SideScrollingWorld extends World
         addHero();
         addStar();
         addPullBack();
-        addGhost();
-
     }
 
-    private void addGhost()
-    {   
-
-    }
 
     private void addStar()
     {
@@ -460,6 +454,7 @@ public class SideScrollingWorld extends World
         addObject(start,95,150);
     }
 
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.

@@ -86,6 +86,7 @@ public class Ghost extends Decoration
         // remove if touching demon
         if( isTouching(Bullet.class))
         {
+            Greenfoot.playSound("Death1.wav");
             isInWorld = false;
             getWorld().removeObject(this);
         }
