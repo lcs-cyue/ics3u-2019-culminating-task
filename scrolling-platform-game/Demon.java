@@ -48,6 +48,7 @@ public class Demon extends Actor
     private static final int WALK_ANIMATION_DELAY = 8;
     private static final int COUNT_OF_WALKING_IMAGES = 5;
     private int walkingFrames;
+    private boolean isInWorld;
 
     /**
      * Constructor
@@ -75,6 +76,9 @@ public class Demon extends Actor
         walkingRightImages = new GreenfootImage[COUNT_OF_WALKING_IMAGES];
         walkingLeftImages = new GreenfootImage[COUNT_OF_WALKING_IMAGES];
 
+        //The object is originally in the world
+        isInWorld = true;
+
         // Load walking images from disk
         for (int i = 0; i < walkingRightImages.length; i++)
         {
@@ -97,28 +101,28 @@ public class Demon extends Actor
     {
         checkKeys();
         checkFall();
-        
+
         //Allows the demon to rotate
         if (Greenfoot.isKeyDown("a"))
         { 
             setRotation(getRotation() - 5);
         }
-        
+
         if (Greenfoot.isKeyDown("d"))
         { 
             setRotation(getRotation() + 5);
         }
-        
+
         //The method "isKeyDown" fires bullets as long as the 
         //key is pressed. Therefore, I changed it to the 
         //"getKey" method in order to fire only 1 bullet at a time
-        
+
         //press "w" to fire bullets
         if ("w".equals(Greenfoot.getKey()))
         { 
             Fire();
         }
-        
+
         if (!isGameOver)
         {
             checkGameOver();
@@ -128,7 +132,7 @@ public class Demon extends Actor
     /**
      * Fire the bullets
      */
-    
+
     private void Fire()
     {
         Bullet bullet1 = new Bullet();
@@ -136,7 +140,7 @@ public class Demon extends Actor
         bullet1.setRotation(getRotation());
         bullet1.move(40.0);
     }
-    
+
     /**
      * Respond to keyboard action from the user.
      */
@@ -538,6 +542,24 @@ public class Demon extends Actor
 
     }
 
+    private void checkForRemoval()
+    {
+        // remove if touching demon
+        if( isTouching(Ghost.class))
+        {
+            isInWorld = false;
+            getWorld().showText("AHHHHHHHH",340,350);
+
+        }
+
+    } 
+    
+    private void displayGameOver () {
+        GameOver gameOver = new GameOver(320, 240);
+        getWorld().addObject(gameOver,400,200);
+        Greenfoot.stop();
+    }
+    
     /**
      * When the hero falls off the bottom of the screen,
      * game is over. We must remove them.

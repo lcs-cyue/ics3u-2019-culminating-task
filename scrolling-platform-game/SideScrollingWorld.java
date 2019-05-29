@@ -296,7 +296,6 @@ public class SideScrollingWorld extends World
         //Add a ghost every 5 seconds
         if (frames % 300 == 0)
         {
-
             int x = HALF_TILE_SIZE + TILE_SIZE * 20;
             int y = TILE_SIZE * 3;
             Ghost ghost1 = new Ghost(x, y);
