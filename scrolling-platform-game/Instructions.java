@@ -9,15 +9,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Instructions extends World
 {
 
-    GreenfootSound backgroundMusic;
+    private GreenfootSound backgroundMusic;
+
 
     public Instructions()
     {    
         // Create a new world with 649x480 cells with a cell size of 1x1 pixels.
         super(640, 480, 1); 
 
-        //Play background music
-        backgroundMusic = new GreenfootSound("Intro.wav");
+        //Play background music 
+        backgroundMusic = new GreenfootSound("Instructions.mp3");
         backgroundMusic.playLoop();
 
         prepare();
@@ -38,6 +39,10 @@ public class Instructions extends World
     {
         //set the world after pressing enter
         if (Greenfoot.isKeyDown ("enter"))
-            Greenfoot.setWorld(new SideScrollingWorld());  
+        {
+            backgroundMusic.stop();
+            Greenfoot.setWorld(new SideScrollingWorld());
+            
+        }
     }
 }
