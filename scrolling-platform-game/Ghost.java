@@ -51,7 +51,7 @@ public class Ghost extends Decoration
             // Now after 30 frames remove the text
             if (frames == 60)
             {
-                getWorld().showText("", 340, 350);
+                getWorld().showText("", 100, 350);
             }
 
         }
@@ -63,7 +63,7 @@ public class Ghost extends Decoration
         if( isTouching(Bullet.class))
         {
             isInWorld = false;
-            getWorld().showText("AHHHHHHHH",340,350);
+            getWorld().showText("AHHHHHHHH",100,350);
 
         }
 

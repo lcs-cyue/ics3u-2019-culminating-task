@@ -14,6 +14,9 @@ public class SideScrollingWorld extends World
      * 
      * These are available for use in any method below.
      */    
+
+    GreenfootSound backgroundMusic;
+
     // Tile size in pixels for world elements (blocks, clouds, etc)
     // TO STUDENTS: Modify if your game's tiles have different dimensions
     private static final int TILE_SIZE = 32;
@@ -51,6 +54,10 @@ public class SideScrollingWorld extends World
         // See: https://www.greenfoot.org/files/javadoc/greenfoot/World.html#World-int-int-int-boolean-
         super(VISIBLE_WIDTH, VISIBLE_HEIGHT, 1, false);
 
+        //Play background music
+        backgroundMusic = new GreenfootSound("TheSupper.mp3");
+        backgroundMusic.playLoop();
+
         // Set up the starting scene
         setup();
 
@@ -59,6 +66,7 @@ public class SideScrollingWorld extends World
 
         // Game on
         isGameOver = false;
+        
     }
 
     /**
@@ -68,6 +76,7 @@ public class SideScrollingWorld extends World
     {
 
         addLeftGround();
+        Start();
         addTowers();
         addPlateSteps();
         addClouds();
@@ -83,6 +92,7 @@ public class SideScrollingWorld extends World
     {   
 
     }
+
     private void addStar()
     {
 
@@ -96,7 +106,7 @@ public class SideScrollingWorld extends World
     private void addPullBack()
     {
 
-        int x = HALF_TILE_SIZE + TILE_SIZE * 19;
+        int x = HALF_TILE_SIZE + TILE_SIZE * 20;
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
         PullBack arrow = new PullBack(x, y);
         addObject(arrow, x, y);
@@ -141,7 +151,7 @@ public class SideScrollingWorld extends World
             addObject(groundTile, x, y);
         }
 
-        for (int i = 26; i <= 30; i += 1)
+        for (int i = 26; i <= 50; i += 1)
         {
             // Add ground objects at bottom of screen
             // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
@@ -193,7 +203,7 @@ public class SideScrollingWorld extends World
     private void addTowers()
     {
         // Add a tower into the world
-        int x = HALF_TILE_SIZE + TILE_SIZE * 16;
+        int x = HALF_TILE_SIZE + TILE_SIZE;
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
         Tower Tower1 = new Tower(x, y);
         addObject(Tower1, x, y);
@@ -249,7 +259,7 @@ public class SideScrollingWorld extends World
         for (int i = 21; i <= 22; i += 1)
         {
             int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = getHeight() - TILE_SIZE * 4 + HALF_TILE_SIZE;
+            int y = TILE_SIZE * 4 + HALF_TILE_SIZE;
 
             Plate plate = new Plate (x,y);
             addObject(plate,x,y);
@@ -292,7 +302,7 @@ public class SideScrollingWorld extends World
     public void act()
     {
         frames += 1;
-        
+
         //Add a ghost every 5 seconds
         if (frames % 300 == 0)
         {
@@ -334,6 +344,16 @@ public class SideScrollingWorld extends World
     public void setGameOver()
     {
         isGameOver = true;
+    }
+
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void Start()
+    {
+        Start start = new Start(160, 350);
+        addObject(start,95,150);
     }
 }
 

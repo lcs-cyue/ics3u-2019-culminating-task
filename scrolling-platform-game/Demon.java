@@ -101,7 +101,12 @@ public class Demon extends Actor
     {
         checkKeys();
         checkFall();
-
+        
+        if (isInWorld)
+        {
+            checkForRemoval();
+        }
+        
         //Allows the demon to rotate
         if (Greenfoot.isKeyDown("a"))
         { 
@@ -545,18 +550,24 @@ public class Demon extends Actor
     private void checkForRemoval()
     {
         // remove if touching demon
+        
         if( isTouching(Ghost.class))
         {
             isInWorld = false;
-            getWorld().showText("AHHHHHHHH",340,350);
-
+            displayGameOver();
+        }
+        
+        if( isTouching(PullBack.class))
+        {
+            setLocation (getX()-150, getY());
+            
         }
 
     } 
     
     private void displayGameOver () {
         GameOver gameOver = new GameOver(320, 240);
-        getWorld().addObject(gameOver,400,200);
+        getWorld().addObject(gameOver,320,240);
         Greenfoot.stop();
     }
     
