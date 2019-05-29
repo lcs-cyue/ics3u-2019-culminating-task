@@ -179,7 +179,7 @@ public class Demon extends Actor
     {
         if (Greenfoot.isKeyDown("w"))
         {
-            Greenfoot.playSound("GunShot.wav");
+            Greenfoot.playSound("GunShot1.mp3");
         }
     }
     
@@ -197,6 +197,7 @@ public class Demon extends Actor
         if (isTouching(Key.class) && hasKey == false)
         {
             hasKey = true;
+            Greenfoot.playSound("HAHA.wav");
         }
     }
     
@@ -697,8 +698,9 @@ public class Demon extends Actor
     private void displayGameOver () 
     {
         GameOver gameOver = new GameOver(320, 240);
-        getWorld().addObject(gameOver,320,240);
+        getWorld().addObject(gameOver,getWorld().getWidth()/2, getWorld().getHeight()/2);
         Greenfoot.playSound("Gameover.wav");
+        Greenfoot.playSound("Laughter.mp3");
         Greenfoot.stop();
     }
 
@@ -717,13 +719,9 @@ public class Demon extends Actor
         // Off bottom of screen?
         if (this.getY() > offScreenVerticalPosition)
         {
-            // Remove the hero
+            // Remove the demon
             isGameOver = true;
-            world.setGameOver();
-            world.removeObject(this);
-
-            // Tell the user game is over
-            world.showText("GAME OVER", world.getWidth() / 2, world.getHeight() / 2);
+            displayGameOver();
         }
     }
 }
