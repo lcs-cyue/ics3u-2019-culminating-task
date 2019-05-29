@@ -116,7 +116,7 @@ public class SideScrollingWorld extends World
         Star star3 = new Star(x, y);
         addObject(star3, x, y);
         
-        x = TILE_SIZE * 36 - HALF_TILE_SIZE;
+        x = TILE_SIZE * 37 - HALF_TILE_SIZE;
         y = TILE_SIZE * 9;
         Star star4 = new Star(x, y);
         addObject(star4, x, y);

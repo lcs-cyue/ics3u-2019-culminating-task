@@ -11,7 +11,7 @@ public class Skull extends Decoration
     private GreenfootImage animation[];
     private static final int COUNT_OF_ANIMATIONS = 4;
     private int Frames;
-    private static final int ANIMATION_DELAY = 4;
+    private static final int ANIMATION_DELAY = 6;
 
     Skull(int scrollableWorldX, int scrollableWorldY)
     {
