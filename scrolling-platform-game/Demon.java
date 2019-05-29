@@ -98,9 +98,23 @@ public class Demon extends Actor
         checkKeys();
         checkFall();
         
-        //Allows the demon to shoot bullets
+        //Allows the demon to rotate
+        if (Greenfoot.isKeyDown("a"))
+        { 
+            setRotation(getRotation() - 5);
+        }
         
-        if (Greenfoot.isKeyDown("s"))
+        if (Greenfoot.isKeyDown("d"))
+        { 
+            setRotation(getRotation() + 5);
+        }
+        
+        //The method "isKeyDown" fires bullets as long as the 
+        //key is pressed. Therefore, I changed it to the 
+        //"getKey" method in order to fire only 1 bullet at a time
+        
+        //press "s" to fire bullets
+        if ("s".equals(Greenfoot.getKey()))
         { 
             Fire();
         }
@@ -119,6 +133,8 @@ public class Demon extends Actor
     {
         Bullet bullet1 = new Bullet();
         getWorld().addObject(bullet1, getX(), getY());
+        bullet1.setRotation(getRotation());
+        bullet1.move(40.0);
     }
     
     /**
