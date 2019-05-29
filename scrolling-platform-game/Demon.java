@@ -50,7 +50,7 @@ public class Demon extends Actor
     private int walkingFrames;
     private boolean isInWorld;
     private boolean touchingWall;
-    private boolean getKey;
+    private boolean getTheKey;
 
     /**
      * Constructor
@@ -67,8 +67,8 @@ public class Demon extends Actor
 
         // Touching the invisible wall
         touchingWall = false;
-        
-        getKey = false;
+
+        getTheKey = false;
 
         // First jump will be in 'down' direction
         verticalDirection = JUMPING_DOWN;
@@ -130,23 +130,26 @@ public class Demon extends Actor
         //"getKey" method in order to fire only 1 bullet at a time
 
         //press "w" to fire bullets
+
         if ("w".equals(Greenfoot.getKey()))
         { 
             Fire();
         }
-
         if (!isGameOver)
         {
             checkGameOver();
         }
-
-        if( isTouching(InvisibleWall.class))
+        if (!isGameOver)
         {
-            touchingWall = true;
-            isInWorld = true;
-            setLocation(100, 350);
-            getWorld().showText("No Access",100,200);
+            if( isTouching(InvisibleWall.class))
+            {
+                touchingWall = true;
+                isInWorld = true;
+                setLocation(100, 350);
+                getWorld().showText("No Access",100,200);
+            }
         }
+
     }
 
     /**
@@ -377,14 +380,14 @@ public class Demon extends Actor
 
         if (isTouching(Door.class))
         {
+            getTheKey = true;
             isGameOver = true;
             world.setGameOver();
 
             // Tell the user game is over
-            world.showText("LEVEL COMPLETE", world.getWidth() / 2, world.getHeight() / 2);
+            setImage(new GreenfootImage("YouWin.png"));
         }
-        
-        
+
         // Decide whether to actually move, or make world's tiles move
         if (currentScrollableWorldXPosition < world.HALF_VISIBLE_WIDTH)
         {
