@@ -17,10 +17,6 @@ public class Skull extends Decoration
     {
         super(scrollableWorldX, scrollableWorldY);
         setImage("Skull0.png");
-    }
-
-    private void animate()
-    {
         
         animation = new GreenfootImage[COUNT_OF_ANIMATIONS];
 
@@ -29,7 +25,6 @@ public class Skull extends Decoration
             animation[i] = new GreenfootImage("Skull" + i + ".png");
         }
         Frames = 0;
-
     }
 
     private void Move()
@@ -46,12 +41,15 @@ public class Skull extends Decoration
             setImage(animation[stage]);
 
         }
+        else
+        {
+            Frames = 0;
+        }
      
     }
     
     public void act() 
         {
-            animate();
             Move();
         }   
     }
