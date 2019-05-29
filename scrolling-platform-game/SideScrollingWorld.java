@@ -98,6 +98,11 @@ public class SideScrollingWorld extends World
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
         Star star1 = new Star(x, y);
         addObject(star1, x, y);
+        
+        x = TILE_SIZE * 46 - HALF_TILE_SIZE;
+        y = TILE_SIZE * 8;
+        Star star2 = new Star(x, y);
+        addObject(star2, x, y);
 
     }
 
@@ -162,7 +167,7 @@ public class SideScrollingWorld extends World
             // Add the objects
             addObject(groundTile, x, y);
         }
-        
+
         for (int i = 36; i <= 37; i += 1)
         {
             // Add ground objects at bottom of screen
@@ -229,6 +234,13 @@ public class SideScrollingWorld extends World
         y = VISIBLE_HEIGHT / 2;
         Tower Tower5 = new Tower(x, y);
         addObject(Tower5, x, y);
+        
+        x = TILE_SIZE * 25 - HALF_TILE_SIZE;
+        y = TILE_SIZE * 13;
+        Tower Tower6 = new Tower(x, y);
+        addObject(Tower6, x, y);
+
+
     }
 
     /**
@@ -280,13 +292,13 @@ public class SideScrollingWorld extends World
         for (int i = 23; i <= 24; i += 1)
         {
             int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = getHeight() - TILE_SIZE * 4 + HALF_TILE_SIZE;
+            int y = getHeight() - TILE_SIZE + HALF_TILE_SIZE;
 
             Plate plate = new Plate (x,y);
             addObject(plate,x,y);
         }
-        
-        for (int i = 32; i < 33; i += 1)
+
+        for (int i = 32; i < 34; i += 1)
         {
             int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
             int y = TILE_SIZE * 6 + HALF_TILE_SIZE;
@@ -295,7 +307,7 @@ public class SideScrollingWorld extends World
             addObject(plate,x,y);
         }
 
-        for (int i = 41; i < 42; i += 1)
+        for (int i = 40; i < 42; i += 1)
         {
             int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
             int y = getHeight() - TILE_SIZE * 2 + HALF_TILE_SIZE;
@@ -303,8 +315,8 @@ public class SideScrollingWorld extends World
             Plate plate = new Plate (x,y);
             addObject(plate,x,y);
         }
-        
-        for (int i = 47; i < 48; i += 1)
+
+        for (int i = 47; i < 49; i += 1)
         {
             int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
             int y = getHeight() - TILE_SIZE * 2 + HALF_TILE_SIZE;
@@ -395,12 +407,12 @@ public class SideScrollingWorld extends World
      */
     private void prepare()
     {
-        Key key = new Key();
-        addObject(key,1000,100);
-        Skull skull = new Skull(100, 100);
+        Key key = new Key(1190, 70);
+        addObject(key, 1190, 70);
+        Skull skull = new Skull(1100,290);
         addObject(skull,1100,290);
-        Careful text1 = new Careful(100, 100);
-        addObject(text1,1200,60);
+        Careful text1 = new Careful(1300, 60);
+        addObject(text1,1300, 60);
     }
 }
 

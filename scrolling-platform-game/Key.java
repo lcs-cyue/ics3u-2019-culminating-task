@@ -6,12 +6,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Key extends Actor
+public class Key extends Decoration
 {
     /**
      * Act - do whatever the Key wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    Key(int scrollableWorldX, int scrollableWorldY)
+    {
+        super(scrollableWorldX, scrollableWorldY);
+    }   
+    
     public void act() 
     {
         // Add your action code here.
