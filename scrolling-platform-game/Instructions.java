@@ -28,8 +28,8 @@ public class Instructions extends World
     {
         InstructionsText text= new InstructionsText(getWidth()/2, getHeight()/2);
         addObject(text, getWidth()/2, getHeight()/2);
-        SkullArt skull1= new SkullArt(getWidth()/2, getHeight()/2);
-        addObject(skull1, getWidth()/2, getHeight()/2);
+        SkullArt skull1= new SkullArt(575, 63);
+        addObject(skull1, 575, 63);
     }
 
     public void act()

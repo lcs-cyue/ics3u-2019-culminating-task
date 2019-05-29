@@ -22,8 +22,8 @@ public class SkullArt extends Decoration
     public void act() 
     {
         counter = counter + 1;
-        
-        if(counter % 60 == 0)
+        //Make it appear to be flashing
+        if(counter % 30 == 0)
         {
            setImage("Skull233.png");
         }
