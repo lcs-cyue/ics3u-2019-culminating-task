@@ -66,7 +66,8 @@ public class SideScrollingWorld extends World
 
         // Game on
         isGameOver = false;
-        
+
+        prepare();
     }
 
     /**
@@ -74,12 +75,11 @@ public class SideScrollingWorld extends World
      */
     private void setup()
     {
-
+        addClouds();
         addLeftGround();
         Start();
         addTowers();
         addPlateSteps();
-        addClouds();
         addRightGround();
         addHero();
         addStar();
@@ -151,7 +151,7 @@ public class SideScrollingWorld extends World
             addObject(groundTile, x, y);
         }
 
-        for (int i = 26; i <= 50; i += 1)
+        for (int i = 26; i <= 36; i += 1)
         {
             // Add ground objects at bottom of screen
             // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
@@ -354,6 +354,18 @@ public class SideScrollingWorld extends World
     {
         Start start = new Start(160, 350);
         addObject(start,95,150);
+    }
+
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        Key key = new Key();
+        addObject(key,1000,100);
+        Skull skull = new Skull(100, 100);
+        addObject(skull,1100,290);
     }
 }
 

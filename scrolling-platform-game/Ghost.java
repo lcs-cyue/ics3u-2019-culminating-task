@@ -47,7 +47,6 @@ public class Ghost extends Decoration
         {
             frames += 1;
             setImage("Star-invisible.png");
-            
             // Now after 30 frames remove the text
             if (frames == 60)
             {
@@ -64,8 +63,9 @@ public class Ghost extends Decoration
         {
             isInWorld = false;
             getWorld().showText("AHHHHHHHH",100,350);
-
+            getWorld().removeObject(this);
         }
+        
 
     } 
 }

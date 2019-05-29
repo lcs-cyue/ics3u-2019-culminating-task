@@ -555,6 +555,7 @@ public class Demon extends Actor
         {
             isInWorld = false;
             displayGameOver();
+            
         }
         
         if( isTouching(PullBack.class))
