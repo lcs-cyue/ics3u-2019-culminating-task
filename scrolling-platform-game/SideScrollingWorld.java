@@ -39,6 +39,7 @@ public class SideScrollingWorld extends World
 
     // Track whether game is on
     private boolean isGameOver;
+    private int frames;
 
     /**
      * Constructor for objects of class SideScrollingWorld.
@@ -80,25 +81,21 @@ public class SideScrollingWorld extends World
 
     private void addGhost()
     {   
-        int x = HALF_TILE_SIZE + TILE_SIZE * 7;
-        int y = TILE_SIZE * 3;
-        Ghost ghost1 = new Ghost(x, y);
-        addObject(ghost1, x, y);
+
     }
-    
     private void addStar()
     {
-        
+
         int x = HALF_TILE_SIZE + TILE_SIZE * 17;
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
         Star star1 = new Star(x, y);
         addObject(star1, x, y);
 
     }
-    
+
     private void addPullBack()
     {
-        
+
         int x = HALF_TILE_SIZE + TILE_SIZE * 19;
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
         PullBack arrow = new PullBack(x, y);
@@ -201,8 +198,6 @@ public class SideScrollingWorld extends World
         Tower Tower1 = new Tower(x, y);
         addObject(Tower1, x, y);
 
-        
-        
         x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - TILE_SIZE * 3;
         y = VISIBLE_HEIGHT / 2;
         Tower Tower4 = new Tower(x, y);
@@ -296,6 +291,19 @@ public class SideScrollingWorld extends World
      */
     public void act()
     {
+        frames += 1;
+        
+        //Add a ghost every 5 seconds
+        if (frames % 300 == 0)
+        {
+
+            int x = HALF_TILE_SIZE + TILE_SIZE * 20;
+            int y = TILE_SIZE * 3;
+            Ghost ghost1 = new Ghost(x, y);
+
+            addObject(ghost1, x, y);
+        }
+
     }
 
     /**

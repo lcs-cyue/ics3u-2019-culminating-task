@@ -37,7 +37,8 @@ public class Ghost extends Decoration
     public void act() 
     {
         //Slowly move to left
-        setLocation (getX()-3, getY());  
+        setLocation (getX()-3, getY()); 
+        
         if (isInWorld)
         {
             checkForRemoval();
@@ -48,11 +49,9 @@ public class Ghost extends Decoration
             setImage("Star-invisible.png");
             
             // Now after 30 frames remove the text
-            if (frames == 30)
+            if (frames == 60)
             {
                 getWorld().showText("", 340, 350);
-                
-                
             }
 
         }
@@ -64,7 +63,7 @@ public class Ghost extends Decoration
         if( isTouching(Bullet.class))
         {
             isInWorld = false;
-            getWorld().showText("Ahhh",340,350);
+            getWorld().showText("AHHHHHHHH",340,350);
 
         }
 
