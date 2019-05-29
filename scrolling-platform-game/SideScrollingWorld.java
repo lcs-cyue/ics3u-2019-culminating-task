@@ -99,17 +99,27 @@ public class SideScrollingWorld extends World
         Star star1 = new Star(x, y);
         addObject(star1, x, y);
         
-        x = TILE_SIZE * 46 - HALF_TILE_SIZE;
-        y = TILE_SIZE * 8;
+        x = TILE_SIZE * 23;
+        y = TILE_SIZE * 3;
         Star star2 = new Star(x, y);
         addObject(star2, x, y);
+        
+        x = TILE_SIZE * 26 - HALF_TILE_SIZE;
+        y = VISIBLE_HEIGHT - TILE_SIZE * 2;
+        Star star3 = new Star(x, y);
+        addObject(star3, x, y);
+
+        x = TILE_SIZE * 46 - HALF_TILE_SIZE;
+        y = TILE_SIZE * 8;
+        Star star4 = new Star(x, y);
+        addObject(star4, x, y);
 
     }
 
     private void addPullBack()
     {
 
-        int x = HALF_TILE_SIZE + TILE_SIZE * 20;
+        int x = HALF_TILE_SIZE + TILE_SIZE * 19;
         int y = VISIBLE_HEIGHT - TILE_SIZE * 3;
         PullBack arrow = new PullBack(x, y);
         addObject(arrow, x, y);
@@ -181,6 +191,20 @@ public class SideScrollingWorld extends World
             // Add the objects
             addObject(groundTile, x, y);
         }
+        
+        for (int i = 54; i <= 58; i += 1)
+        {
+            // Add ground objects at bottom of screen
+            // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = getHeight() - TILE_SIZE * 6 + HALF_TILE_SIZE;
+
+            // Create a ground tile
+            Ground groundTile = new Ground(x, y);
+
+            // Add the objects
+            addObject(groundTile, x, y);
+        }
 
     }
 
@@ -234,15 +258,13 @@ public class SideScrollingWorld extends World
         y = VISIBLE_HEIGHT / 2;
         Tower Tower5 = new Tower(x, y);
         addObject(Tower5, x, y);
-        
+
         x = TILE_SIZE * 25 - HALF_TILE_SIZE;
         y = TILE_SIZE * 13;
         Tower Tower6 = new Tower(x, y);
         addObject(Tower6, x, y);
 
-
     }
-
     /**
      * Add steps made out of metal plates leading to end of world.
      */
@@ -324,6 +346,16 @@ public class SideScrollingWorld extends World
             Plate plate = new Plate (x,y);
             addObject(plate,x,y);
         }
+
+        for (int i = 51; i < 52; i += 1)
+        {
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = getHeight() - TILE_SIZE * 4 + HALF_TILE_SIZE;
+
+            Plate plate = new Plate (x,y);
+            addObject(plate,x,y);
+        }
+        
     }
 
     /**
