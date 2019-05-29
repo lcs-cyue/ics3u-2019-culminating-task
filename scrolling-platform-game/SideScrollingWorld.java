@@ -74,9 +74,18 @@ public class SideScrollingWorld extends World
         addHero();
         addStar();
         addPullBack();
+        addGhost();
 
     }
 
+    private void addGhost()
+    {   
+        int x = HALF_TILE_SIZE + TILE_SIZE * 7;
+        int y = TILE_SIZE * 3;
+        Ghost ghost1 = new Ghost(x, y);
+        addObject(ghost1, x, y);
+    }
+    
     private void addStar()
     {
         
