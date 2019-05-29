@@ -160,6 +160,14 @@ public class Demon extends Actor
             }
         }
 
+         //score+1 if gets star
+        if (isTouching(Star.class))
+        {
+            removeTouching(Star.class);
+            SideScrollingWorld world1 = (SideScrollingWorld)getWorld();
+            Score score = world1.getScore();
+            score.addScore();
+        }
     }
 
     public boolean foundKey()
@@ -540,6 +548,7 @@ public class Demon extends Actor
 
     }
 
+    
     private void Win()
     {
         YouWin win1 = new YouWin(320, 240);

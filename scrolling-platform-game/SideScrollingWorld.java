@@ -41,6 +41,8 @@ public class SideScrollingWorld extends World
     // Track whether game is on
     private boolean isGameOver;
     private int frames;
+    
+    Score score = new Score();
 
     /**
      * Constructor for objects of class SideScrollingWorld.
@@ -64,6 +66,9 @@ public class SideScrollingWorld extends World
 
         // Game on
         isGameOver = false;
+        
+        //add score into the world
+        addObject(score, 575, 10);
 
         prepare();
     }
@@ -395,7 +400,19 @@ public class SideScrollingWorld extends World
 
             addObject(ghost1, x, y);
         }
+        //Every 60 frames, update the time
+        if ((frames % 60) == 0)
+        {
+            String timeElapsed = Integer.toString(frames / 60);
+            showText(timeElapsed, 35, 50);
 
+        }
+
+    }
+    
+    public Score getScore()
+    {
+        return score;
     }
 
     /**
@@ -420,6 +437,8 @@ public class SideScrollingWorld extends World
     {
         return theDemon;
     }
+    
+    
 
     /**
      * Set game over
