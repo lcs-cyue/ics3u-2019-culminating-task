@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * This is the class for the "main character" in the action.
  * 
- * @author R. Gordon
+ * @author C. Yue
  * @version May 8, 2019
  */
 public class Demon extends Actor
@@ -97,12 +97,30 @@ public class Demon extends Actor
     {
         checkKeys();
         checkFall();
+        
+        //Allows the demon to shoot bullets
+        
+        if (Greenfoot.isKeyDown("s"))
+        { 
+            Fire();
+        }
+        
         if (!isGameOver)
         {
             checkGameOver();
         }
     }
 
+    /**
+     * Fire the bullets
+     */
+    
+    private void Fire()
+    {
+        Bullet bullet1 = new Bullet();
+        getWorld().addObject(bullet1, getX(), getY());
+    }
+    
     /**
      * Respond to keyboard action from the user.
      */
