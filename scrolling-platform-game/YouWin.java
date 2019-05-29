@@ -1,29 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class InvisibleWall here.
+ * Write a description of class YouWin here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class InvisibleWall extends Platform
+public class YouWin extends Decoration
 {
     /**
-     * Act - do whatever the InvisibleWall wants to do. This method is called whenever
+     * Act - do whatever the YouWin wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-
-    
-
-    InvisibleWall(int scrollableWorldX, int scrollableWorldY)
+    YouWin(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
-       
-    }
-
-    
+    }   
     public void act() 
     {
-        
+        // Add your action code here.
     }    
 }

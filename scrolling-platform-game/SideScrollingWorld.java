@@ -1,4 +1,4 @@
-
+  
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -108,11 +108,17 @@ public class SideScrollingWorld extends World
         y = VISIBLE_HEIGHT - TILE_SIZE * 2;
         Star star3 = new Star(x, y);
         addObject(star3, x, y);
+        
+        x = TILE_SIZE * 36 - HALF_TILE_SIZE;
+        y = TILE_SIZE * 9;
+        Star star4 = new Star(x, y);
+        addObject(star4, x, y);
+
 
         x = TILE_SIZE * 46 - HALF_TILE_SIZE;
         y = TILE_SIZE * 8;
-        Star star4 = new Star(x, y);
-        addObject(star4, x, y);
+        Star star5 = new Star(x, y);
+        addObject(star5, x, y);
 
     }
 
@@ -445,7 +451,7 @@ public class SideScrollingWorld extends World
         addObject(skull,1100,290);
         Careful text1 = new Careful(1300, 60);
         addObject(text1,1300, 60);
-        InvisibleWall wall1 = new InvisibleWall(1800, 240);
+        InvisibleWall wall1 = new InvisibleWall(1900, 240);
         addObject(wall1, 1700, 240);
         Door door1 = new Door(1880, 240);
         addObject(door1, 1880, 240);

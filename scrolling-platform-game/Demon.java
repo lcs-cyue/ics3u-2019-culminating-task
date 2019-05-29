@@ -50,7 +50,7 @@ public class Demon extends Actor
     private int walkingFrames;
     private boolean isInWorld;
     private boolean touchingWall;
-    private boolean getTheKey;
+    private boolean hasKey;
 
     /**
      * Constructor
@@ -68,7 +68,7 @@ public class Demon extends Actor
         // Touching the invisible wall
         touchingWall = false;
 
-        getTheKey = false;
+        hasKey = false;
 
         // First jump will be in 'down' direction
         verticalDirection = JUMPING_DOWN;
@@ -108,6 +108,8 @@ public class Demon extends Actor
     {
         checkKeys();
         checkFall();
+        foundKey();
+        hasFoundKey();
 
         if (isInWorld)
         {
@@ -141,13 +143,84 @@ public class Demon extends Actor
         }
         if (!isGameOver)
         {
-            if( isTouching(InvisibleWall.class))
+            if( isTouching(InvisibleWall.class) && hasKey == false)
             {
+                walkingFrames += 1;
                 touchingWall = true;
                 isInWorld = true;
-                setLocation(100, 350);
+                // Make the character appear to have moved back to an x position of 100
+                moveEverythingBy(1270);
                 getWorld().showText("No Access",100,200);
+
+                if (walkingFrames == 90)
+                {
+                    walkingFrames += 1;
+                    getWorld().showText("",100,200);
+                }
             }
+        }
+
+    }
+
+    public boolean foundKey()
+    {
+        Actor Key = getOneObjectAtOffset(0, 0, Key.class);
+        return Key != null;
+    }
+
+    /**
+     * Check to see if demon has touched key for first time
+     */
+    public void hasFoundKey()
+    {
+        if (isTouching(Key.class) && hasKey == false)
+        {
+            hasKey = true;
+        }
+    }
+
+    /**
+     * Move everything else by a given amount.
+     */
+    private void moveEverythingBy(int thisMuch)
+    {
+        // Set the hero;s position in the scrollable world
+        currentScrollableWorldXPosition -= thisMuch;
+
+        // Get world object reference
+        SideScrollingWorld world = (SideScrollingWorld) getWorld();
+
+        // Get a list of all platforms (objects that need to move
+        // to make hero look like they are moving)
+        List<Platform> platforms = world.getObjects(Platform.class);
+
+        // Move all the platform objects to make it look like hero is moving
+        for (Platform platform : platforms)
+        {
+            // Platforms move left to make hero appear to move right
+            platform.moveRight(thisMuch);
+        }
+
+        // Get a list of all decorations (objects that need to move
+        // to make hero look like they are moving)
+        List<Decoration> decorations = world.getObjects(Decoration.class);
+
+        // Move all the decoration objects to make it look like hero is moving
+        for (Decoration decoration: decorations)
+        {
+            // Platforms move left to make hero appear to move right
+            decoration.moveRight(thisMuch);
+        }
+
+        // Get a list of all farAwayItems (objects that need to move
+        // to make hero look like they are moving)
+        List<FarAwayItem> farAwayItems = world.getObjects(FarAwayItem.class);
+
+        // Move all the tile objects to make it look like hero is moving
+        for (FarAwayItem farAwayItem : farAwayItems)
+        {
+            // FarAwayItems move left to make hero appear to move right
+            farAwayItem.moveRight(thisMuch / 4);
         }
 
     }
@@ -373,19 +446,15 @@ public class Demon extends Actor
             {
                 setImage("Demon-Jump-Down-Right.png");
             }
-        }
+        } 
 
         // Get object reference to world
         SideScrollingWorld world = (SideScrollingWorld) getWorld(); 
 
-        if (isTouching(Door.class))
+        if (isTouching(Door.class) && hasKey == true)
         {
-            getTheKey = true;
-            isGameOver = true;
-            world.setGameOver();
-
-            // Tell the user game is over
-            setImage(new GreenfootImage("YouWin.png"));
+            Win();
+            Greenfoot.stop(); 
         }
 
         // Decide whether to actually move, or make world's tiles move
@@ -469,6 +538,13 @@ public class Demon extends Actor
 
         }   
 
+    }
+
+    private void Win()
+    {
+        YouWin win1 = new YouWin(320, 240);
+        getWorld().addObject(win1, 320, 240);
+        Greenfoot.stop();
     }
 
     /**
@@ -593,7 +669,8 @@ public class Demon extends Actor
 
     } 
 
-    private void displayGameOver () {
+    private void displayGameOver () 
+    {
         GameOver gameOver = new GameOver(320, 240);
         getWorld().addObject(gameOver,320,240);
         Greenfoot.stop();
