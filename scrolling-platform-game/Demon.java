@@ -137,7 +137,6 @@ public class Demon extends Actor
     /**
      * Fire the bullets
      */
-
     private void Fire()
     {
         Bullet bullet1 = new Bullet();
@@ -550,7 +549,7 @@ public class Demon extends Actor
     private void checkForRemoval()
     {
         // remove if touching demon
-        
+         
         if( isTouching(Ghost.class))
         {
             isInWorld = false;

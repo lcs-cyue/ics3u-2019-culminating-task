@@ -162,6 +162,20 @@ public class SideScrollingWorld extends World
             // Add the objects
             addObject(groundTile, x, y);
         }
+        
+        for (int i = 36; i <= 37; i += 1)
+        {
+            // Add ground objects at bottom of screen
+            // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
+            int x = i * TILE_SIZE + HALF_TILE_SIZE;
+            int y = TILE_SIZE * 4 + HALF_TILE_SIZE;
+
+            // Create a ground tile
+            Ground groundTile = new Ground(x, y);
+
+            // Add the objects
+            addObject(groundTile, x, y);
+        }
 
     }
 
@@ -263,20 +277,32 @@ public class SideScrollingWorld extends World
             addObject(plate,x,y);
         }
 
-        // for (int i = 0; i < COUNT_OF_METAL_PLATES / PLATES_PER_GROUP; i += 1)
-        // {
-        // // Group of four metal plates all at same y position
-        // int y = VISIBLE_HEIGHT - HALF_TILE_SIZE - i * TILE_SIZE * 3;
+        for (int i = 32; i < 33; i += 1)
+        {
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = TILE_SIZE * 6 + HALF_TILE_SIZE;
 
-        // // Add the individual plates in a given group
-        // for (int j = 0; j < PLATES_PER_GROUP; j += 1)
-        // {
-        // int x = VISIBLE_WIDTH + TILE_SIZE * 4 + TILE_SIZE * (i + j) + TILE_SIZE * 10 * i;
-        // Plate plate = new Plate(x, y);
-        // addObject(plate, x, y);
-        // }
-        // }
+            Plate plate = new Plate (x,y);
+            addObject(plate,x,y);
+        }
 
+        for (int i = 41; i < 42; i += 1)
+        {
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = getHeight() - TILE_SIZE * 2 + HALF_TILE_SIZE;
+
+            Plate plate = new Plate (x,y);
+            addObject(plate,x,y);
+        }
+        
+        for (int i = 47; i < 48; i += 1)
+        {
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = getHeight() - TILE_SIZE * 2 + HALF_TILE_SIZE;
+
+            Plate plate = new Plate (x,y);
+            addObject(plate,x,y);
+        }
     }
 
     /**
