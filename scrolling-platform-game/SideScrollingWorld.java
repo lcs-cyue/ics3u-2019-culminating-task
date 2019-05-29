@@ -192,7 +192,7 @@ public class SideScrollingWorld extends World
             addObject(groundTile, x, y);
         }
         
-        for (int i = 54; i <= 58; i += 1)
+        for (int i = 55; i <= 58; i += 1)
         {
             // Add ground objects at bottom of screen
             // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
@@ -250,12 +250,12 @@ public class SideScrollingWorld extends World
         addObject(Tower1, x, y);
 
         x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - TILE_SIZE * 3;
-        y = VISIBLE_HEIGHT / 2;
+        y = VISIBLE_HEIGHT / 2 + HALF_TILE_SIZE;
         Tower Tower4 = new Tower(x, y);
         addObject(Tower4, x, y);
 
         x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - TILE_SIZE * 4;
-        y = VISIBLE_HEIGHT / 2;
+        y = VISIBLE_HEIGHT / 2 + HALF_TILE_SIZE;
         Tower Tower5 = new Tower(x, y);
         addObject(Tower5, x, y);
 
@@ -445,6 +445,10 @@ public class SideScrollingWorld extends World
         addObject(skull,1100,290);
         Careful text1 = new Careful(1300, 60);
         addObject(text1,1300, 60);
+        InvisibleWall wall1 = new InvisibleWall(1800, 240);
+        addObject(wall1, 1700, 240);
+        Door door1 = new Door(1880, 240);
+        addObject(door1, 1880, 240);
     }
 }
 

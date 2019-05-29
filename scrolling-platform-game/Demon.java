@@ -49,6 +49,8 @@ public class Demon extends Actor
     private static final int COUNT_OF_WALKING_IMAGES = 5;
     private int walkingFrames;
     private boolean isInWorld;
+    private boolean touchingWall;
+    private boolean getKey;
 
     /**
      * Constructor
@@ -62,6 +64,11 @@ public class Demon extends Actor
 
         // Game on
         isGameOver = false;
+
+        // Touching the invisible wall
+        touchingWall = false;
+        
+        getKey = false;
 
         // First jump will be in 'down' direction
         verticalDirection = JUMPING_DOWN;
@@ -101,12 +108,12 @@ public class Demon extends Actor
     {
         checkKeys();
         checkFall();
-        
+
         if (isInWorld)
         {
             checkForRemoval();
         }
-        
+
         //Allows the demon to rotate
         if (Greenfoot.isKeyDown("a"))
         { 
@@ -131,6 +138,14 @@ public class Demon extends Actor
         if (!isGameOver)
         {
             checkGameOver();
+        }
+
+        if( isTouching(InvisibleWall.class))
+        {
+            touchingWall = true;
+            isInWorld = true;
+            setLocation(100, 350);
+            getWorld().showText("No Access",100,200);
         }
     }
 
@@ -360,6 +375,16 @@ public class Demon extends Actor
         // Get object reference to world
         SideScrollingWorld world = (SideScrollingWorld) getWorld(); 
 
+        if (isTouching(Door.class))
+        {
+            isGameOver = true;
+            world.setGameOver();
+
+            // Tell the user game is over
+            world.showText("LEVEL COMPLETE", world.getWidth() / 2, world.getHeight() / 2);
+        }
+        
+        
         // Decide whether to actually move, or make world's tiles move
         if (currentScrollableWorldXPosition < world.HALF_VISIBLE_WIDTH)
         {
@@ -388,14 +413,14 @@ public class Demon extends Actor
                 // Track position in wider scrolling world
                 currentScrollableWorldXPosition += deltaX;
             }
-            else
-            {
-                isGameOver = true;
-                world.setGameOver();
+            // else
+            // {
+            // isGameOver = true;
+            // world.setGameOver();
 
-                // Tell the user game is over
-                world.showText("LEVEL COMPLETE", world.getWidth() / 2, world.getHeight() / 2);
-            }
+            // // Tell the user game is over
+            // world.showText("LEVEL COMPLETE", world.getWidth() / 2, world.getHeight() / 2);
+            // }
 
         }
         else
@@ -549,28 +574,28 @@ public class Demon extends Actor
     private void checkForRemoval()
     {
         // remove if touching demon
-         
+
         if( isTouching(Ghost.class))
         {
             isInWorld = false;
             displayGameOver();
-            
+
         }
-        
+
         if( isTouching(PullBack.class))
         {
             setLocation (getX()-150, getY());
-            
+
         }
 
     } 
-    
+
     private void displayGameOver () {
         GameOver gameOver = new GameOver(320, 240);
         getWorld().addObject(gameOver,320,240);
         Greenfoot.stop();
     }
-    
+
     /**
      * When the hero falls off the bottom of the screen,
      * game is over. We must remove them.
