@@ -57,6 +57,8 @@ public class SideScrollingWorld extends World
         //Play background music
         backgroundMusic = new GreenfootSound("TheSupper.mp3");
         backgroundMusic.playLoop();
+        
+        prepare();
 
         // Set up the starting scene
         setup();
@@ -70,7 +72,7 @@ public class SideScrollingWorld extends World
         //add score into the world
         addObject(score, 575, 10);
 
-        prepare();
+        
     }
 
     /**
@@ -472,8 +474,8 @@ public class SideScrollingWorld extends World
         addObject(text1,1300, 60);
         InvisibleWall wall1 = new InvisibleWall(1900, 240);
         addObject(wall1, 1700, 240);
-        Door door1 = new Door(1875, 250);
-        addObject(door1, 1875, 250);
+        Door door1 = new Door(1870, 244);
+        addObject(door1, 1870, 244);
     }
 }
 

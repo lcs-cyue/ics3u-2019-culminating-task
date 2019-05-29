@@ -2,7 +2,7 @@
 class.Bullet.image=Bullet.png
 class.Cloud.image=night-town-background-clouds.png
 class.Demon.image=Demon-Right.png
-class.Door.image=old-dark-castle-interior-tileset_07.png
+class.Door.image=Door.png
 class.GameOver.image=154-1549752_direct-image-link-game-over-pixel-art-png.png
 class.Ghost.image=Dan\ ge.png
 class.Ground.image=Ground\!\!.png

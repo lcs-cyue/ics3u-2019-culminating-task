@@ -15,11 +15,13 @@ public class Ghost extends Decoration
     private GreenfootImage flyingRightImages[];
     private static final int COUNT_OF_FLYING_IMAGES = 7;
     private boolean isInWorld;
-    private int frames;
+    private int Frames;
+    private static final int ANIMATION_DELAY = 8;
     
     Ghost(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
+        setImage("Ghost1.png");
 
         flyingRightImages = new GreenfootImage[COUNT_OF_FLYING_IMAGES];
 
@@ -31,9 +33,30 @@ public class Ghost extends Decoration
         }
         
         isInWorld = true;
-        frames = 0;
+        Frames = 0;
     }   
 
+     private void Move()
+    {
+        // Track animation frames
+        Frames += 1;
+
+        // Get current animation stage
+        int stage = Frames / ANIMATION_DELAY;
+
+        if (stage < flyingRightImages.length)
+        {
+            // Set image for this stage of the animation
+            setImage(flyingRightImages[stage]);
+
+        }
+        else
+        {
+            Frames = 0;
+        }
+     
+    }
+    
     public void act() 
     {
         //Slowly move to left
@@ -42,18 +65,20 @@ public class Ghost extends Decoration
         if (isInWorld)
         {
             checkForRemoval();
-        }
+        } 
         else
         {
-            frames += 1;
+            Frames += 1;
             setImage("Star-invisible.png");
             // Now after 30 frames remove the text
-            if (frames == 60)
+            if (Frames == 60)
             {
                 getWorld().showText("", 100, 350);
             }
 
         }
+        
+        Move();
     }      
 
     private void checkForRemoval()
@@ -62,7 +87,6 @@ public class Ghost extends Decoration
         if( isTouching(Bullet.class))
         {
             isInWorld = false;
-            getWorld().showText("AHHHHHHHH",100,350);
             getWorld().removeObject(this);
         }
         
