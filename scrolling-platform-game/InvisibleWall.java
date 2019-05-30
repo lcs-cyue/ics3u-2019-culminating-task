@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class InvisibleWall extends Platform
+public class InvisibleWall extends Decoration
 {
     /**
      * Act - do whatever the InvisibleWall wants to do. This method is called whenever

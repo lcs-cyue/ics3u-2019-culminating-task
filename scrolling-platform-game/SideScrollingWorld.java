@@ -110,7 +110,7 @@ public class SideScrollingWorld extends World
         Star star3 = new Star(x, y);
         addObject(star3, x, y);
         
-        x = TILE_SIZE * 37 - HALF_TILE_SIZE;
+        x = TILE_SIZE * 30 - HALF_TILE_SIZE;
         y = TILE_SIZE * 9;
         Star star4 = new Star(x, y);
         addObject(star4, x, y);
@@ -394,7 +394,7 @@ public class SideScrollingWorld extends World
             int y = TILE_SIZE * 3;
             Ghost ghost1 = new Ghost(x, y);
 
-            addObject(ghost1, x, y);
+            //addObject(ghost1, x, y);
         }
         //Every 60 frames, update the time
         if ((frames % 60) == 0)
@@ -461,20 +461,20 @@ public class SideScrollingWorld extends World
      */
     private void prepare()
     {
-        Key key = new Key(1190, 70);
-        addObject(key, 1190, 70);
+        Key key = new Key(1190, 20);
+        addObject(key, 1190, 20);
         
-        Skull skull = new Skull(1100,290);
-        addObject(skull,1100,290);
+        Skull skull = new Skull(1200, 430);
+        addObject(skull,1200, 430);
         
         Careful text1 = new Careful(1300, 60);
         addObject(text1,1300, 60);
         
-        InvisibleWall wall1 = new InvisibleWall(1900, 240);
-        addObject(wall1, 1700, 240);
+        InvisibleWall wall1 = new InvisibleWall(1620, 240);
+        addObject(wall1, 1620, 240);
         
-        Door door1 = new Door(1870, 244);
-        addObject(door1, 1870, 244);
+        Door door1 = new Door(1845, 249);
+        addObject(door1, 1845, 249);
     }
 }
 
