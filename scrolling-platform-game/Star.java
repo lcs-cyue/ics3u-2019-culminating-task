@@ -44,6 +44,17 @@ public class Star extends Decoration
             }
 
         }
+        
+        //Twinkling star
+        frames = frames + 1;
+        if(frames % 30 == 0)
+        {
+           setImage("Star-invisible.png");
+        }
+        else
+        {
+            setImage("Star.png");
+        }
     }   
 
     private void checkForRemoval()
