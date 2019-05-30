@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Basic ground object.
  * 
- * @author R. Gordon
+ * @author C. Yue
  * @version May 8, 2019
  */
 public class Cloud extends FarAwayItem

@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class MetalPlate here.
  * 
- * @author (your name) 
+ * @author C. Yue 
  * @version (a version number or a date)
  */
 public class Plate extends Platform

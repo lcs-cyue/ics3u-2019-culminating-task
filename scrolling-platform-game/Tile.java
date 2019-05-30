@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Abstract class used to move all subclasses when we need to make it look like the hero is moving.
  * 
- * @author R. Gordon
+ * @author C. Yue
  * @version May 8, 2019
  */
 public abstract class Tile extends Actor

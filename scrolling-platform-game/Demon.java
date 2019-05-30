@@ -161,7 +161,7 @@ public class Demon extends Actor
             }
         }
 
-        //score+1 if gets star
+        //score + 1 if gets star
         if (!isGameOver)
         {
             if(isTouching(Star.class))

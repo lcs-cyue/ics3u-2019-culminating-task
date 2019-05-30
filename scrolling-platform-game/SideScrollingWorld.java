@@ -225,24 +225,6 @@ public class SideScrollingWorld extends World
         final int GROUND_BELOW_COLUMNS = COUNT_OF_GROUND;
         final int GROUND_BELOW_ROWS = 6;
         final int COUNT_OF_GROUND_BELOW = GROUND_BELOW_COLUMNS * GROUND_BELOW_ROWS;
-
-        // 1. Make ground at end of level (top layer)
-        // for (int i = 0; i <= 10; i += 1)
-        // {
-        // for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
-        // {
-        // // Position in wider scrollable world
-        // int x = i * TILE_SIZE + HALF_TILE_SIZE;
-        // int y = getHeight() - TILE_SIZE + HALF_TILE_SIZE;
-
-        // // Create object and add it
-        // Ground ground = new Ground(x, y);
-        // addObject(ground, x, y);
-        // }
-        // }
-
-        // 2. Make sub-ground at end of level (below top layer)
-
     }
 
     /**
@@ -270,7 +252,6 @@ public class SideScrollingWorld extends World
         y = TILE_SIZE * 13;
         Tower Tower6 = new Tower(x, y);
         addObject(Tower6, x, y);
-
     }
     /**
      * Add steps made out of metal plates leading to end of world.
@@ -372,8 +353,10 @@ public class SideScrollingWorld extends World
     {
         Cloud cloud1 = new Cloud(170, 80);
         addObject(cloud1, 170, 80);
+        
         Cloud cloud2 = new Cloud(550, 175);
         addObject(cloud2, 550, 175);
+        
         Cloud cloud3 = new Cloud(800, 50);
         addObject(cloud3, 800, 50);
     }
@@ -394,8 +377,9 @@ public class SideScrollingWorld extends World
             int y = TILE_SIZE * 3;
             Ghost ghost1 = new Ghost(x, y);
 
-            //addObject(ghost1, x, y);
+            addObject(ghost1, x, y);
         }
+        
         //Every 60 frames, update the time
         if ((frames % 60) == 0)
         {
@@ -403,7 +387,6 @@ public class SideScrollingWorld extends World
             showText(timeElapsed, 35, 50);
 
         }
-
     }
     
     public Score getScore()
@@ -433,9 +416,7 @@ public class SideScrollingWorld extends World
     {
         return theDemon;
     }
-    
-    
-
+       
     /**
      * Set game over
      */
@@ -454,7 +435,6 @@ public class SideScrollingWorld extends World
         addObject(start,95,150);
     }
 
-    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
